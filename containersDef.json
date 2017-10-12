@@ -1,0 +1,33 @@
+{
+  "containerDefinitions":
+  [
+    {
+      
+      "memory": 1024,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80,
+          "protocol": "tcp"
+        },
+        {
+          "hostPort": 8080,
+          "containerPort": 8080,
+          "protocol": "tcp"
+        },
+        {
+          "hostPort": 443,
+          "containerPort": 443,
+          "protocol": "tcp"
+        }
+      ],
+      
+      "essential": true,
+      "name": "container1",
+      "image": "754250089381.dkr.ecr.eu-west-2.amazonaws.com/adlgallery:latest",
+
+      "cpu": 500,
+      "memoryReservation": 300
+    }
+  ]
+}
