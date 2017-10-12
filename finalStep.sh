@@ -1,4 +1,4 @@
-#!/bin/bash
+
 SERVICE_NAME="adl-gallery-ws-service"
 
 TASK_FAMILY="deploysimpleserver"
