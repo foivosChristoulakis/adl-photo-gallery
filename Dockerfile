@@ -1,6 +1,8 @@
 
 FROM openjdk:8-jdk-alpine
 VOLUME /tmp
+
+COPY static /static/
 ADD target/spring-boot-starter-freemarker-1.5.7.RELEASE.jar app.jar
 ENV JAVA_OPTS=""
 
