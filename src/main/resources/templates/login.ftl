@@ -66,7 +66,7 @@
     <!-- Footer -->
     <footer class="py-5 bg-dark">
         <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Arthur D. Little 201734543</p>
+            <p class="m-0 text-center text-white">Copyright &copy; Arthur D. Little 2017YESSSS</p>
         </div>
         <!-- /.container -->
     </footer>
