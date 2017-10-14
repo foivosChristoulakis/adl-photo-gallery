@@ -1,4 +1,4 @@
-package foivos.gallery.controllers;
+package foivos.gallery.utils;
 
 public class UserValidator {
 

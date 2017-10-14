@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class PhotoGalleryController {
+	
+	PhotoGalleryController(){
+		System.out.println("PhotoGalleryController instantiated");
+	}
 
 	@RequestMapping(value = { "/events/{eventName}/{photographerName:[^.]+}" })
 	public String photographerIndex(HttpServletRequest request, @PathVariable String eventName,
