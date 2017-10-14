@@ -6,7 +6,7 @@ import java.util.Properties;
 
 public class PropertiesProvider {
 
-	private static final String propertiesFileName = "/aws.properties";
+	private static final String propertiesFileName = "\\aws.properties";
 	private static Properties properties = new Properties();
 
 	static {
