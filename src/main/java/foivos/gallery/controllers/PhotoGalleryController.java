@@ -11,11 +11,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import foivos.gallery.utils.PropertiesProvider;
+
 @Controller
 public class PhotoGalleryController {
 	
+	
+	
 	PhotoGalleryController(){
-		System.out.println("PhotoGalleryController instantiated");
+
+
 	}
 
 	@RequestMapping(value = { "/events/{eventName}/{photographerName:[^.]+}" })
@@ -23,7 +28,7 @@ public class PhotoGalleryController {
 			@PathVariable String photographerName, Model model) {
 
 		System.out.println("requested " + eventName + " from " + photographerName);
-
+		System.out.println(PropertiesProvider.getAWSBucketName());
 		// add trailing slash to URL
 		if (!request.getRequestURI().endsWith("/"))
 			return "redirect:" + request.getRequestURI() + "/";
