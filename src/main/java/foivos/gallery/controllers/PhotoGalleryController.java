@@ -15,11 +15,8 @@ import foivos.gallery.utils.PropertiesProvider;
 
 @Controller
 public class PhotoGalleryController {
-	
-	
-	
-	PhotoGalleryController(){
 
+	PhotoGalleryController() {
 
 	}
 
@@ -28,7 +25,7 @@ public class PhotoGalleryController {
 			@PathVariable String photographerName, Model model) {
 
 		System.out.println("requested " + eventName + " from " + photographerName);
-		System.out.println(PropertiesProvider.getAWSBucketName());
+		//System.out.println(PropertiesProvider.getAWSBucketName());
 		// add trailing slash to URL
 		if (!request.getRequestURI().endsWith("/"))
 			return "redirect:" + request.getRequestURI() + "/";
