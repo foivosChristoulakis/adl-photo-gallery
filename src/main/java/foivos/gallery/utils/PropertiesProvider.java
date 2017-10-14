@@ -10,7 +10,8 @@ public class PropertiesProvider {
 	private static Properties properties = new Properties();
 
 	static {
-		try (InputStream inStream = ClassLoader.class.getResourceAsStream(propertiesFileName)) {
+		ClassLoader loader = Thread.currentThread().getContextClassLoader();
+		try (InputStream inStream = loader.getResourceAsStream(propertiesFileName)) {
 			properties.load(inStream);
 		} catch (IOException e) {
 			e.printStackTrace();
