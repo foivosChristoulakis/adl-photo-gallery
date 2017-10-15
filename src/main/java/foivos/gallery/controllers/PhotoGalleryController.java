@@ -63,14 +63,14 @@ public class PhotoGalleryController {
 
 	}
 
-	@Deprecated
-	static List<String> getContentsFileNames(File directory) {
-		File[] files = directory.listFiles();
-		ArrayList<String> fileNames = new ArrayList<>();
-		for (File file : files) {
-			fileNames.add(file.getName());
-		}
-		return fileNames;
-	}
+//	@Deprecated
+//	static List<String> getContentsFileNames(File directory) {
+//		File[] files = directory.listFiles();
+//		ArrayList<String> fileNames = new ArrayList<>();
+//		for (File file : files) {
+//			fileNames.add(file.getName());
+//		}
+//		return fileNames;
+//	}
 
 }
