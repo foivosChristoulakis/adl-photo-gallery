@@ -29,7 +29,7 @@ public class PhotoGalleryController {
 	public String photographerIndex(HttpServletRequest request, @PathVariable String eventName,
 			@PathVariable String photographerName, Model model) {
 
-		System.out.println("requested " + eventName + " from " + photographerName);
+		//System.out.println("requested " + eventName + " from " + photographerName);
 
 		// add trailing slash to URL
 		if (!request.getRequestURI().endsWith("/"))
@@ -37,7 +37,7 @@ public class PhotoGalleryController {
 
 		// else
 		List<String> photosNames = dir.getFilenames(eventName + "/" + photographerName);
-		System.out.println(photosNames);
+		//System.out.println(photosNames);
 
 		// if no photos returned
 		if (photosNames.isEmpty())
