@@ -12,12 +12,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import foivos.gallery.utils.PropertiesProvider;
+import foivos.gallery.utils.aws.DirectoryContentsProvider;
+import foivos.gallery.utils.aws.S3DirectoryContentsProvider;
 
 @Controller
 public class PhotoGalleryController {
 
-	PhotoGalleryController() {
+	private DirectoryContentsProvider dir;
 
+	PhotoGalleryController() {
+		dir = new S3DirectoryContentsProvider();
+		dir.initialize(PropertiesProvider.getAWSBucketName(), PropertiesProvider.getEventsPath());
 	}
 
 	@RequestMapping(value = { "/events/{eventName}/{photographerName:[^.]+}" })
@@ -25,29 +30,40 @@ public class PhotoGalleryController {
 			@PathVariable String photographerName, Model model) {
 
 		System.out.println("requested " + eventName + " from " + photographerName);
-		System.out.println("_----------->>>>>>>>>>>"+PropertiesProvider.getAWSBucketName());
-		
+
 		// add trailing slash to URL
 		if (!request.getRequestURI().endsWith("/"))
 			return "redirect:" + request.getRequestURI() + "/";
 
 		// else
-		File galleryDir = new File("static/events/" + eventName + "/" + photographerName);
-		if (!galleryDir.isDirectory())
+		List<String> photosNames = dir.getFilenames(eventName + "/" + photographerName);
+		System.out.println(photosNames);
+
+		// if no photos returned
+		if (photosNames.isEmpty())
 			return "error";
-		else {
-			List<String> photosNames = getContentsFileNames(galleryDir);
-			photosNames.remove("thumb.jpg");
 
-			model.addAttribute("eventName", eventName);
-			model.addAttribute("photographerName", photographerName);
-			model.addAttribute("photosNames", photosNames);
+		photosNames.remove("thumb.jpg");
 
-			return "photographerGallery";
-		}
+		String assetsURI = "https://s3." + PropertiesProvider.getS3Region() + ".amazonaws.com/"
+				+ PropertiesProvider.getAWSBucketName() + "/" + PropertiesProvider.getAssetsPath();
+
+		String eventURI = "https://s3." + PropertiesProvider.getS3Region() + ".amazonaws.com/"
+				+ PropertiesProvider.getAWSBucketName() + "/" + PropertiesProvider.getEventsPath() + "/" + eventName;
+		// System.out.println(assetsURI);
+
+		model.addAttribute("assets", assetsURI);
+		model.addAttribute("event", eventURI);
+
+		model.addAttribute("eventName", eventName);
+		model.addAttribute("photographerName", photographerName);
+		model.addAttribute("photosNames", photosNames);
+
+		return "photographerGallery";
 
 	}
 
+	@Deprecated
 	static List<String> getContentsFileNames(File directory) {
 		File[] files = directory.listFiles();
 		ArrayList<String> fileNames = new ArrayList<>();

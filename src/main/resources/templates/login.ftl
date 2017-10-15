@@ -9,21 +9,21 @@
     <meta name="author" content="">
 
 
-	<link rel="shortcut icon" href="/favicon.ico" />
-	<link rel="icon" href="/favicon.ico" />
+	<link rel="shortcut icon" href="${assets}/favicon.ico" />
+	<link rel="icon" href="${assets}/favicon.ico" />
 
     <title>Login Page</title>
 
     <link href="https://cdn.rawgit.com/sachinchoolur/lightgallery.js/master/dist/css/lightgallery.css" rel="stylesheet">
 
     <!-- Bootstrap core CSS -->
-    <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${assets}/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="/assets/css/custom.css" rel="stylesheet">
+    <link href="${assets}/css/custom.css" rel="stylesheet">
 
 	<!-- Custom styles for this template -->
-    <link href="/assets/css/loginForm.css" rel="stylesheet">
+    <link href="${assets}/css/loginForm.css" rel="stylesheet">
 	
 </head>
 
@@ -34,7 +34,7 @@
 
         <!-- Jumbotron Header -->
         <header class="jumbotron my-4 text-center">
-            <img src="assets/images/ADLLogo.png" class="img-fluid" width="500" alt="ADLLogo">
+            <img src="${assets}/images/ADLLogo.png" class="img-fluid" width="500" alt="ADLLogo">
             
             
         </header>
@@ -72,12 +72,12 @@
     </footer>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="../../assets/vendor/jquery/jquery.min.js"></script>
-    <script src="../../assets/vendor/popper/popper.min.js"></script>
-    <script src="../../assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="${assets}/vendor/jquery/jquery.min.js"></script>
+    <script src="${assets}/vendor/popper/popper.min.js"></script>
+    <script src="${assets}/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-    <script src="../../../assets/js/picturefill.min.js"></script>
-    <script src="../../../assets/js/loginForm.js"></script>
+    <script src="${assets}/js/picturefill.min.js"></script>
+    <script src="${assets}/js/loginForm.js"></script>
 
 </body>
 
