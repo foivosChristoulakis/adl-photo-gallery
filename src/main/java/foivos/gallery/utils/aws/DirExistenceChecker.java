@@ -28,11 +28,11 @@ public class DirExistenceChecker {
 		this.bucket = bucket;
 		this.eventsPath = eventsPath;
 
-		AmazonS3ClientBuilder s3ClientBuilder = AmazonS3ClientBuilder.standard().withRegion(Regions.EU_WEST_2); // TODO
+		AmazonS3ClientBuilder s3ClientBuilder = AmazonS3ClientBuilder.standard().withRegion(Regions.EU_WEST_2) // TODO
 																												// make
 																												// it
 																												// parameter
-				//.withCredentials(CredentialsProvider.getInstance());
+				.withCredentials(CredentialsProvider.getInstance());
 
 		AmazonS3 s3Client = s3ClientBuilder.build();
 		this.s3Client = s3Client;
